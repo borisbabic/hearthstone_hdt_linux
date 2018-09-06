@@ -55,3 +55,7 @@ WINEPREFIX=~/.wine.hearthstone wine ~/Downloads/Hearthstone-Setup.exe
 ```
 
 After installing hearthstone before running it on the hearthstone screen in battlenet click options->game settings and set `-force-d3d9` as additional command line argument which solves the black window issue.
+
+## Development
+
+Compile using mono: `mcs hdte.cs -reference:System.Security`
