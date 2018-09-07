@@ -14,18 +14,19 @@ If you aren't going to login to hsreplay in HDT you can skip this.
 
 HDT works on linux, however you can't login to hsreplay. However you can grab the login info from a working windows install and then use that on linux. 
 
-First ensure that HDT is not running on windows. Next download the hdte.exe file from this repository to your Downloads folder on windows. Finally open the command prompt and run the following:
+First ensure that HDT is not running on windows. Next download the [`hdte.exe`](https://github.com/borisbabic/hearthstone_hdt_linux/raw/master/hdte.exe) file from this repository to your Downloads folder on windows. Then open the command prompt and run the following:
 
 ```shell
 Downloads\hdte.exe decrypt %AppData%\HearthstoneDeckTracker\hsreplay_oauth Downloads\hsreplay_oauth.decrypted
 ```
 
+You will have to transfer that `hsreplay_oauth.decrypted` from `Downloads` to Linux (I'll assume it's in `~/Downloads` on linux later on when installing HDT) 
 
 ### 1. Setup the prefix
 ```shell
 WINEPREFIX=~/.wine.hearthstone winetricks dotnet45 # you can skip this if you dont want HDT. it installs .NET 4.5 which is required by HDT. just do the next,next,next dance
 WINEPREFIX=~/.wine.hearthstone winetricks win7 # sets the windows version to 7
-WINEPREFIX=~/.wine.hearthstone winetricks corefonts # battlenet is a bit messed up and it can be hard/impossible to login without this
+WINEPREFIX=~/.wine.hearthstone winetricks corefonts # battlenet is a bit messed up without this and it can be hard/impossible to login if you don't do this
 WINEPREFIX=~/.wine.hearthstone winetricks nocrashdialog # not necessary but stops the popup warnings after running battlenet
 ```
 
@@ -37,10 +38,10 @@ Download hdt from https://hsdecktracker.net/download/ then run
 WINEPREFIX=~/.wine.hearthstone wine ~/Downloads/HDTInstaller.exe # or wherever you downloaded it to
 ```
 
-If you are going to login to hsreplay then download the `hdte.exe` file from this repository to `~/Downloads` alongside the `hsreplay_oauth.decrypted` file from above, close HDT if it is open, and run the following
+If you want to be logged in to hsreplay then download the [`hdte.exe`](https://github.com/borisbabic/hearthstone_hdt_linux/raw/master/hdte.exe) file from this repository to `~/Downloads` alongside the `hsreplay_oauth.decrypted` file from above, close HDT if it is open, and run the following
 
 ```shell
-WINEPREFIX=~/.wine.hearthstone wine ~/Downloads/hdte.exe decrypt ~/Downloads/hsreplay_oauth.decrypted ~/.wine.hearthstone/drive_c/users/$USER/Application Data/HearthstoneDeckTracker/hsreplay_oauth # change ~/.wine.hearthstone to your wine prefix if you've changed it
+WINEPREFIX=~/.wine.hearthstone wine ~/Downloads/hdte.exe decrypt ~/Downloads/hsreplay_oauth.decrypted ~/.wine.hearthstone/drive_c/users/$USER/Application Data/HearthstoneDeckTracker/hsreplay_oauth # change ~/.wine.hearthstone to your wine prefix if you've changed it 
 ```
 
 
