@@ -17,6 +17,9 @@ It's tested working with the following (on the nixos-unstable channel, and likel
 ## Installation
 
 ### 0. Grab HDT oauth from windows
+
+NOTE: If you are running a sufficiently new version of wine (lowest tested was 5.0 staging) you don't need a working windows install and can just login to hsreplay normally without copying the auth over from windows.
+
 If you aren't going to login to hsreplay in HDT you can skip this.
 
 HDT works on linux, however you can't login to hsreplay. However you can grab the login info from a working windows install and then use that on linux. 
@@ -36,6 +39,7 @@ WINEPREFIX=~/.wine.hearthstone winetricks dotnet45 # Install .NET 4.5
 WINEPREFIX=~/.wine.hearthstone winetricks win7 # Set Windows version to 7 (.NET install will have set it to 2k3)
 WINEPREFIX=~/.wine.hearthstone winetricks corefonts # Install fonts for Battle.net, you may not be able to login without this
 WINEPREFIX=~/.wine.hearthstone winetricks nocrashdialog # Without this popup warnings appear after running Battle.net
+WINEPREFIX=~/.wine.hearthstone winetricks settings usetakefocus=disabled  # Solves issue where you won't be able to click and need to restart the game. I haven't yet played enough with this to be sure about it works but I haven't had the bug yet.
 ```
 
 ### 2. Install HDT
@@ -45,6 +49,7 @@ Download HDT from https://hsdecktracker.net/download/ then run
 ```shell
 WINEPREFIX=~/.wine.hearthstone wine ~/Downloads/HDT-Installer.exe # or wherever you downloaded it to
 ```
+NOTE: the following is not necessary for newer versions of wine, you can just login normally. The lowest tested where it wasn't necessary was 5.0 staging
 
 If you want to be logged in to hsreplay then download the [`hdte.exe`](https://github.com/borisbabic/hearthstone_hdt_linux/raw/master/hdte.exe) file from this repository to `~/Downloads` alongside the `hsreplay_oauth.decrypted` file from above, close HDT if it is open, and run the following
 
