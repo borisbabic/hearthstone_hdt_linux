@@ -3,7 +3,7 @@ These instructions assume a clean [wine prefix](https://wiki.winehq.org/FAQ#Wine
 
 ## Prerequisites
 ### Any distro
-- wine (duh) - I assume you either need the 32bit version or the wow version (which supports both). Tested working on: wine-3.13 (Staging)
+- wine (duh) - I assume you either need the 32bit version or the wow version (which supports both). Tested working on: wine-3.13 (Staging) - 5.0 (Staging)
 - winetricks - used for making the setup eaiser. You can manually do the steps without it, but it's easier to use. Tested working on: 20180603 - sha256sum: a114ec82c634d87b048cef33f1a0bfe9d26f3795459fd85c5bb064dc0260299c
 ### Arch linux
 - wine-staging
