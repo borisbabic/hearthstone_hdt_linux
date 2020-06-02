@@ -75,7 +75,11 @@ Try running the game in windowed mode. In at least KDE the overlay doesn't show 
 The overlay is a bit weird window wise, so it may be possible your window manager doesn't handle it the best. Please try a different window manager/desktop environment before reporting an issue if this is your problem. The following is tested as working:
 
 - kwin/KDE - works in windowed mode, overlay isn't shown in fullscreen
+- Xfwm4/Xfce  - works in windowed mode
 - awesomewm4 - works
+
+### Performance issues
+There is a known performance drop with the overlay. Some possible workarounds are to disable some stuff, like flavor tooltips and card animations. It's also a good idea to add a shortcut to toggle the overlay for more intensive turns Options -> check Advanced Options -> Hotkeys -> Toggle overlay
 
 If you test this in something else please add to the above list
 ## Development
