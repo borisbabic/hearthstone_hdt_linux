@@ -3,7 +3,7 @@ These instructions assume a clean [wine prefix](https://wiki.winehq.org/FAQ#Wine
 
 ## Prerequisites
 ### Any distro
-- wine staging - HDT won't install if it's not a staging version. I assume you either need the 32bit version or the wow version (which supports both). Tested working on: wine-3.13 (Staging) - 5.0 (Staging)
+- wine staging - WARNING: You may need to downgrade to 5.8. HDT won't install if it's not a staging version. I assume you either need the 32bit version or the wow version (which supports both). Tested working on: wine-3.13 (Staging) - 5.0 (Staging)
 - winetricks - used for making the setup eaiser. You can manually do the steps without it, but it's easier to use. Tested working on: 20180603 - 20191224
 ### Arch linux
 - wine-staging
@@ -35,12 +35,16 @@ You will have to transfer that `hsreplay_oauth.decrypted` from `Downloads` to Li
 ### 1. Setup the prefix
 ```shell
 WINEPREFIX=~/.wine.hearthstone WINEARCH=win32 wine wineboot # Create 32 bit wine prefix
-WINEPREFIX=~/.wine.hearthstone winetricks dotnet45 # Install .NET 4.5
-WINEPREFIX=~/.wine.hearthstone winetricks win7 # Set Windows version to 7 (.NET install will have set it to 2k3)
+WINEPREFIX=~/.wine.hearthstone winetricks dotnet472 # Install .NET 4.7.2
 WINEPREFIX=~/.wine.hearthstone winetricks corefonts # Install fonts for Battle.net, you may not be able to login without this
 WINEPREFIX=~/.wine.hearthstone winetricks nocrashdialog # Without this popup warnings appear after running Battle.net
-WINEPREFIX=~/.wine.hearthstone winetricks settings usetakefocus=disabled  # Solves issue where you won't be able to click and need to restart the game. I haven't yet played enough with this to be sure about it works but I haven't had the bug yet.
 ```
+
+There are also two registry keys that need to be edited.  run `WINEPREFIX=~/.wine.hearthstone regedit`
+
+- Navigate to/create `HKEY_CURRENT_USER\Software\Wine\X11 Driver` then create a new entry `UseTakeFocus` with the value `N`. This solves window focus issues
+- Navigate to/create `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Avalon.Graphics` and create `DisableHWAcceleration` with the value `1` - allows the installation of newer versions of hdt
+
 
 ### 2. Install HDT
 
