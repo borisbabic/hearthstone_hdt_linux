@@ -42,8 +42,8 @@ WINEPREFIX=~/.wine.hearthstone winetricks nocrashdialog # Without this popup war
 
 There are also two registry keys that need to be edited.  run `WINEPREFIX=~/.wine.hearthstone regedit`
 
-- Navigate to/create `HKEY_CURRENT_USER\Software\Wine\X11 Driver` then create a new entry `UseTakeFocus` with the value `N`. This solves window focus issues
-- Navigate to/create `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Avalon.Graphics` and create `DisableHWAcceleration` with the value `1` - allows the installation of newer versions of hdt
+- Navigate to/create `HKEY_CURRENT_USER\Software\Wine\X11 Driver` then create a new entry `UseTakeFocus` with the value `N` (String Value). This solves window focus issues
+- Navigate to/create `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Avalon.Graphics` and create `DisableHWAcceleration` with the value `1` (DWORD Value) - allows the installation of newer versions of hdt
 
 
 ### 2. Install HDT
@@ -81,6 +81,7 @@ The overlay is a bit weird window wise, so it may be possible your window manage
 - kwin/KDE - works in windowed mode, overlay isn't shown in fullscreen
 - Xfwm4/Xfce  - works in windowed mode
 - awesomewm4 - works
+- xmonad - works
 
 ### Performance issues
 There is a known performance drop with the overlay. Some possible workarounds are to disable some stuff, like flavor tooltips and card animations. It's also a good idea to add a shortcut to toggle the overlay for more intensive turns Options -> check Advanced Options -> Hotkeys -> Toggle overlay
