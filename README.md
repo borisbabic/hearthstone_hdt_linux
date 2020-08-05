@@ -73,6 +73,7 @@ WINEPREFIX=~/.wine.hearthstone wine ~/Downloads/Hearthstone-Setup.exe
 Before running Hearthstone select Hearthstone in Battle.net, go to Options->Game Settings, enable Additional command line arguments, and add the argument `-force-d3d9` (without this you may get a black screen on launch).
 
 ## Troubleshooting
+If the below doesn't help you can create an issue or ask for help in my [discord](https://discord.gg/uNE6z8u) 
 ### HDT runs but the overlay doesn't appear in game
 Try running the game in windowed mode. In at least KDE the overlay doesn't show above the game in fullscreen. If that doesn't work then check the overlay options in the main HDT window, in particular the "Hide in menu"" and "Hide (completely)". Try toggling the "Hide (completely)" option.
 
