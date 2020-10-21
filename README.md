@@ -81,8 +81,27 @@ The overlay is a bit weird window wise, so it may be possible your window manage
 
 - kwin/KDE - works in windowed mode, overlay isn't shown in fullscreen
 - Xfwm4/Xfce  - works in windowed mode
-- awesomewm4 - works
+- awesomewm4 - works (see below)
 - xmonad - works
+
+#### awsomewm4 rules
+
+Use the following rule to ensure the overlay is always on top:
+```lua
+awful.rules.rules = {
+  -- ...
+  -- Always show on top
+  { rule_any = {
+      name = {
+        "HearthstoneOverlay",
+      },
+    },
+    properties = {
+      ontop = true,
+    }
+  },
+}
+```
 
 ### Performance issues
 There is a known performance drop with the overlay. Some possible workarounds are to disable some stuff, like flavor tooltips and card animations. It's also a good idea to add a shortcut to toggle the overlay for more intensive turns Options -> check Advanced Options -> Hotkeys -> Toggle overlay
