@@ -45,6 +45,21 @@ There are also two registry keys that need to be edited.  run `WINEPREFIX=~/.win
 - Navigate to/create `HKEY_CURRENT_USER\Software\Wine\X11 Driver` then create a new entry `UseTakeFocus` with the value `N` (String Value). This solves window focus issues
 - Navigate to/create `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Avalon.Graphics` and create `DisableHWAcceleration` with the value `1` (DWORD Value) - allows the installation of newer versions of hdt
 
+You can automatically change these keys using the following script:
+```sh
+{ cat | sed 's/$/\r/' | iconv -f ascii -t UTF-16 > /tmp/hdt.reg; } <<EOF
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Wine\X11 Driver]
+"UseTakeFocus"="N"
+
+[HKEY_CURRENT_USER\Software\Microsoft\Avalon.Graphics]
+"DisableHWAcceleration"=dword:00000001
+EOF
+
+WINEPREFIX=~/.wine.hearthstone regedit /tmp/hdt.reg
+```
+
 
 ### 2. Install HDT
 
