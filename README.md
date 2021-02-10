@@ -85,6 +85,8 @@ Run the following to install it:
 WINEPREFIX=~/.wine.hearthstone wine ~/Downloads/Hearthstone-Setup.exe 
 ```
 
+When you get to the login screen, go to settings>advanced and uncheck "Use browser hardware acceleration when available" (without this you may get a black screen instead of the launcher)
+
 Before running Hearthstone select Hearthstone in Battle.net, go to Options->Game Settings, enable Additional command line arguments, and add the argument `-force-d3d9` (without this you may get a black screen on launch).
 
 ## Troubleshooting
